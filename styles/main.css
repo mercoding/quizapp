@@ -1,0 +1,37 @@
+body {
+    background-color: #4E4D82;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.question-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.quiz-card {
+    width: 32rem;
+    margin-bottom: 64px;
+}
+
+
+.btn-primary {
+    background-color: #6528E0;
+    --bs-btn-bg: #6528E0;
+    --bs-btn-border-color: #6528E0;
+    --bs-btn-hover-bg: #6528E0;
+    --bs-btn-hover-border-color: #6528E0;
+    --bs-btn-active-bg: #6528E0;
+    --bs-btn-active-border-color: #6528E0;
+    --bs-btn-disabled-bg: #6528E0;
+    --bs-btn-disabled-border-color: #6528E0;
+}
