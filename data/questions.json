@@ -1,0 +1,34 @@
+{
+    "questions": [
+        {
+            "question": "Wer hat HTML efunden?",
+            "answers": ["Tim Berners-Lee", "Lady Gaga", "Elon Musk", "Tom Jones"],
+            "solution": 0
+        },
+        {
+            "question": "Was bedeutet das HTML Tag &lt;a&gt;?",
+            "answers": ["Text Fett", "Container", "Ein Link", "Kursiv"],
+            "solution": 2
+        },
+        {
+            "question": "Wie bindet man eine Website in eine Website ein?",
+            "answers": ["&lt;iframe&gt;, &lt;frame&gt;, and &lt;frameset&gt", "&lt;iframe&gt;", "&lt;frame&gt;", "&lt;frameset&gt;"],
+            "solution": 1
+        },
+        {
+            "question": "Welches Attribut kann man NICHT für Textarea verwenden?",
+            "answers": ["readonly", "max", "from", "spellcheck"],
+            "solution": 0
+        },
+        {
+            "question": "Wie wählst du alle Elemente vom Typ &lt;a&gt; mit dem Attribut title aus?",
+            "answers": ["a > title", "a[title]{...}", "a.title {...}", "a=title {...}"],
+            "solution": 1
+        },
+        {
+            "question": "Wie definiert man in Javascript eine Variable?",
+            "answers": ["Let 100 = rate;", "100 = let rate;", "rate = 100;", "let rate = 100;"],
+            "solution": 3
+        }
+    ]
+}

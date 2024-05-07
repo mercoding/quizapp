@@ -11,10 +11,10 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./styles/main.css">
-    <script type="module" src="./scripts/module.js"></script>
+    <script type="module" src="./scripts/main.js"></script>
 </head>
 
-<body>
+<body onload="render()">
     <nav class="navbar bg-body-tertiary">
         <div class="container">
             <a class="navbar-brand" href="#">
@@ -26,30 +26,30 @@
         <div class="card quiz-card">
             <img src="./img/quiz-5595288_1280.jpg" class="card-img-top" alt="Quiz Image">
             <div class="card-body">
-                <h5 class="card-title">Frage</h5>
-                <div class="card mb-2">
+                <h5 id="question" class="card-title">Frage</h5>
+                <div id="answer1" class="card mb-2">
                     <div class="card-body">
                         Antwort
                     </div>
                 </div>
-                <div class="card mb-2">
+                <div id="answer2" class="card mb-2">
                     <div class="card-body">
                         Antwort
                     </div>
                 </div>
-                <div class="card mb-2">
+                <div id="answer3" class="card mb-2">
                     <div class="card-body">
                         Antwort
                     </div>
                 </div>
-                <div class="card mb-2">
+                <div id="answer4" class="card mb-2">
                     <div class="card-body">
                         Antwort
                     </div>
                 </div>
                 <div class="question-footer">
-                    <span><b>1</b> von <b>5</b> Fragen</span>
-                    <button class="btn btn-primary">Nächste Frage</button>
+                    <span><b id="q-number">1</b> von <b>5</b> Fragen</span>
+                    <button class="btn btn-primary" onclick="nextQuestion()">Nächste Frage</button>
                 </div>
             </div>
         </div>
