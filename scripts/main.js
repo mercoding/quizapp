@@ -5,10 +5,12 @@ let q = loadJSON('./data/questions.json'), currentQuestion;
 
 
 function getNextQuestion(i) {
-    document.querySelector('#question').innerHTML = q.questions[i].question;
+    document.querySelector('.card-title').setAttribute('id', `question${i}`);
+    document.querySelector(`#question${i}`).innerHTML = q.questions[i].question;
     q.questions[i].answers.forEach((element, index) => {
-        document.querySelector('#answer' + (index + 1)).innerHTML = element;
+        document.querySelector(`#answer${index} > div`).innerHTML = element;
     });
+    document.querySelectorAll('.card-body > div').forEach(element => { element.style.setProperty('background-color', 'white');});
 }
 
 
@@ -24,6 +26,18 @@ function nextQuestion() {
 }
 
 
+function checkAnswer(i) {
+    if(q.questions[currentQuestion].solution == i) {
+        document.querySelector(`#answer${i}`).style.setProperty('background-color', 'green');
+        q.passed += 1;
+    }
+    else {
+        document.querySelector(`#answer${q.questions[currentQuestion].solution}`).style.setProperty('background-color', 'green');
+        document.querySelector(`#answer${i}`).style.setProperty('background-color', 'red');
+    }
+}
+
+
 function render() {
     if(!localStorage.getItem('question'))
         localStorage.setItem('question', 0);
@@ -34,3 +48,4 @@ function render() {
 
 window.render = render;
 window.nextQuestion = nextQuestion;
+window.checkAnswer = checkAnswer;

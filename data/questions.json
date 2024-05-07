@@ -30,5 +30,6 @@
             "answers": ["Let 100 = rate;", "100 = let rate;", "rate = 100;", "let rate = 100;"],
             "solution": 3
         }
-    ]
+    ],
+    "passed": 0
 }
