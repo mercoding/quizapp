@@ -40,7 +40,7 @@ main {
 }
 
 
-.quiz-answer-card:hover {
+.quiz-answer-card > div:hover {
     cursor: pointer;
     background-color: rgba(0,0,0, 0.1) !important;
     opacity: 1;

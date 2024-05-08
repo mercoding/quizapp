@@ -35,7 +35,10 @@ function getNextQuestion(i) {
     q.questions[i].answers.forEach((element, index) => {
         document.querySelector(`#answer${index} > div`).innerHTML = element;
     });
-    document.querySelectorAll('.quiz-answer-card .card-body').forEach(element => { element.style.setProperty('background-color', 'white'); });
+    document.querySelectorAll('.quiz-answer-card').forEach(element => { 
+        element.classList.remove('bg-success');
+        element.classList.remove('bg-danger');
+    });
 }
 
 
@@ -53,13 +56,13 @@ function nextQuestion() {
 function checkAnswer(i) {
     if(document.querySelector(`#question${currentQuestion}`).dataset.selected == '1') return;
     if (q.questions[currentQuestion].solution == i) {
-        document.querySelector(`#answer${i} .card-body`).style.setProperty('background-color', 'green');
+        document.querySelector(`#answer${q.questions[currentQuestion].solution}`).classList.add('bg-success');
         q.passed += 1;
         localStorage.setItem('questionsPassed', q.passed);
     }
     else {
-        document.querySelector(`#answer${q.questions[currentQuestion].solution} .card-body`).style.setProperty('background-color', 'green');
-        document.querySelector(`#answer${i} .card-body`).style.setProperty('background-color', 'red');
+        document.querySelector(`#answer${q.questions[currentQuestion].solution}`).classList.add('bg-success');
+        document.querySelector(`#answer${i}`).classList.add('bg-danger');
     }
     document.querySelector(`#question${currentQuestion}`).dataset.selected = 1;
 }
