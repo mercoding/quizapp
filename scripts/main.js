@@ -74,9 +74,10 @@ function getEndgameCard() {
         <div id="score" class="score">
             <span>Sie haben von ${q.questions.length} Fragen ${localStorage.getItem('questionsPassed')} richtig beantwortet</span>
             <span>das entspricht ${calculatePercentage()}%</span>
+            <span></span>
         </div>
         <div class="question-footer">
-            <span><b id="q-number">1</b> von <b id="q-total">5</b> Fragen</span>
+            <span><b id="q-number">${q.questions.length}</b> von <b id="q-total">${q.questions.length}</b> Fragen</span>
             <button class="btn btn-primary" onclick="start()">Neu Starten</button>
         </div>
     `;
@@ -85,6 +86,7 @@ function getEndgameCard() {
 
 function endgame() {
     document.querySelector('.card-body').innerHTML = getEndgameCard();
+    localStorage.setItem('question', 0);
 }
 
 
