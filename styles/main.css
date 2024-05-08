@@ -27,6 +27,19 @@ main {
 }
 
 
+.score {
+    display: grid;
+    height: 200px;
+    grid-template-rows: repeat(5, 1fr);
+}
+
+.score > span {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+
 .btn-primary {
     background-color: #6528E0;
     --bs-btn-bg: #6528E0;
