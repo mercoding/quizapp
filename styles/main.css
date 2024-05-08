@@ -58,3 +58,8 @@ main {
     --bs-btn-disabled-bg: #6528E0;
     --bs-btn-disabled-border-color: #6528E0;
 }
+
+
+.bg-success, .bg-danger {
+    color: white;
+}
