@@ -6,18 +6,18 @@ let q = loadJSON('./data/questions.json'), currentQuestion;
 
 function getQuizCard() {
     return /*html*/`
-        <h5 id="question0" class="card-title">Frage</h5>
+        <h5 id="question${currentQuestion}" class="card-title" data-selected="0">Frage</h5>
             <div id="answer0" class="card quiz-answer-card  mb-2">
-                <div class="card-body" onclick="checkAnswer(0)"></div>
+                <div class="card-body" onclick="checkAnswer(currentQuestion, 0)"></div>
             </div>
             <div id="answer1" class="card quiz-answer-card mb-2">
-                <div class="card-body" onclick="checkAnswer(1)"></div>
+                <div class="card-body" onclick="checkAnswer(currentQuestion, 1)"></div>
             </div>
             <div id="answer2" class="card quiz-answer-card mb-2">
-                <div class="card-body" onclick="checkAnswer(2)"></div>
+                <div class="card-body" onclick="checkAnswer(currentQuestion, 2)"></div>
             </div>
             <div id="answer3" class="card quiz-answer-card mb-2">
-                <div class="card-body" onclick="checkAnswer(3)"></div>
+                <div class="card-body" onclick="checkAnswer(currentQuestion, 3)"></div>
             </div>
             <div class="question-footer">
                 <span><b id="q-number">1</b> von <b id="q-total">5</b> Fragen</span>
@@ -31,6 +31,7 @@ function getQuizCard() {
 function getNextQuestion(i) {
     document.querySelector('.card-title').setAttribute('id', `question${i}`);
     document.querySelector(`#question${i}`).innerHTML = q.questions[i].question;
+    document.querySelector(`#question${i}`).dataset.selected = 0;
     q.questions[i].answers.forEach((element, index) => {
         document.querySelector(`#answer${index} > div`).innerHTML = element;
     });
@@ -50,6 +51,7 @@ function nextQuestion() {
 
 
 function checkAnswer(i) {
+    if(document.querySelector(`#question${currentQuestion}`).dataset.selected == '1') return;
     if (q.questions[currentQuestion].solution == i) {
         document.querySelector(`#answer${i} .card-body`).style.setProperty('background-color', 'green');
         q.passed += 1;
@@ -59,6 +61,7 @@ function checkAnswer(i) {
         document.querySelector(`#answer${q.questions[currentQuestion].solution} .card-body`).style.setProperty('background-color', 'green');
         document.querySelector(`#answer${i} .card-body`).style.setProperty('background-color', 'red');
     }
+    document.querySelector(`#question${currentQuestion}`).dataset.selected = 1;
 }
 
 
