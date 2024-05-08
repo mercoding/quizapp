@@ -6,17 +6,17 @@ let q = loadJSON('./data/questions.json'), currentQuestion;
 
 function getQuizCard() {
     return /*html*/`
-        <h5 id="question1" class="card-title">Frage</h5>
-            <div id="answer0" class="card mb-2">
+        <h5 id="question0" class="card-title">Frage</h5>
+            <div id="answer0" class="card quiz-answer-card  mb-2">
                 <div class="card-body" onclick="checkAnswer(0)"></div>
             </div>
-            <div id="answer1" class="card mb-2">
+            <div id="answer1" class="card quiz-answer-card mb-2">
                 <div class="card-body" onclick="checkAnswer(1)"></div>
             </div>
-            <div id="answer2" class="card mb-2">
+            <div id="answer2" class="card quiz-answer-card mb-2">
                 <div class="card-body" onclick="checkAnswer(2)"></div>
             </div>
-            <div id="answer3" class="card mb-2">
+            <div id="answer3" class="card quiz-answer-card mb-2">
                 <div class="card-body" onclick="checkAnswer(3)"></div>
             </div>
             <div class="question-footer">
@@ -34,7 +34,7 @@ function getNextQuestion(i) {
     q.questions[i].answers.forEach((element, index) => {
         document.querySelector(`#answer${index} > div`).innerHTML = element;
     });
-    document.querySelectorAll('.card-body > div').forEach(element => { element.style.setProperty('background-color', 'white'); });
+    document.querySelectorAll('.quiz-answer-card .card-body').forEach(element => { element.style.setProperty('background-color', 'white'); });
 }
 
 
@@ -51,13 +51,13 @@ function nextQuestion() {
 
 function checkAnswer(i) {
     if (q.questions[currentQuestion].solution == i) {
-        document.querySelector(`#answer${i}`).style.setProperty('background-color', 'green');
+        document.querySelector(`#answer${i} .card-body`).style.setProperty('background-color', 'green');
         q.passed += 1;
         localStorage.setItem('questionsPassed', q.passed);
     }
     else {
-        document.querySelector(`#answer${q.questions[currentQuestion].solution}`).style.setProperty('background-color', 'green');
-        document.querySelector(`#answer${i}`).style.setProperty('background-color', 'red');
+        document.querySelector(`#answer${q.questions[currentQuestion].solution} .card-body`).style.setProperty('background-color', 'green');
+        document.querySelector(`#answer${i} .card-body`).style.setProperty('background-color', 'red');
     }
 }
 
