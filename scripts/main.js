@@ -21,7 +21,7 @@ function getQuizCard() {
             </div>
             <div class="question-footer">
                 <span><b id="q-number">1</b> von <b id="q-total">5</b> Fragen</span>
-                <button class="btn btn-primary" onclick="nextQuestion()">Nächste Frage</button>
+                <button id="next-btn" class="btn btn-primary" onclick="nextQuestion()" disabled>Nächste Frage</button>
             </div>
     `;
 }
@@ -44,6 +44,7 @@ function getNextQuestion(i) {
 
 function nextQuestion() {
     currentQuestion = Number(currentQuestion) + 1;
+    document.querySelector('#next-btn').disabled = true;
     if (currentQuestion < q.questions.length) {
         localStorage.setItem('question', currentQuestion);
         document.querySelector('#q-number').innerHTML = currentQuestion + 1;
@@ -65,6 +66,7 @@ function checkAnswer(i) {
         document.querySelector(`#answer${i}`).classList.add('bg-danger');
     }
     document.querySelector(`#question${currentQuestion}`).dataset.selected = 1;
+    document.querySelector('#next-btn').disabled = false;
 }
 
 
