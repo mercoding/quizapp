@@ -80,9 +80,9 @@ function getEndgameCard() {
     return /*html*/`
         <h5 id="endgame" class="card-title">Ende</h5>
         <div id="score" class="score">
-            <span>Sie haben von ${q.questions.length} Fragen ${localStorage.getItem('questionsPassed')} richtig beantwortet</span>
-            <span>das entspricht ${calculatePercentage()}%</span>
-            <span></span>
+            <span>Sie haben von ${q.questions.length} Fragen ${localStorage.getItem('questionsPassed')} richtig beantwortet.</span>
+            <img class="trophy-img" src="./img/trophy.png" alt="">
+            <span>Das entspricht ${calculatePercentage()}%</span>
         </div>
         <div class="question-footer">
             <span><b id="q-number">${q.questions.length}</b> von <b id="q-total">${q.questions.length}</b> Fragen</span>
