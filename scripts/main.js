@@ -8,16 +8,16 @@ function getQuizCard() {
     return /*html*/`
         <h5 id="question${currentQuestion}" class="card-title" data-selected="0">Frage</h5>
             <div id="answer0" class="card quiz-answer-card  mb-2">
-                <div class="card-body" onclick="checkAnswer(currentQuestion, 0)"></div>
+                <div class="card-body" onclick="checkAnswer(0)"></div>
             </div>
             <div id="answer1" class="card quiz-answer-card mb-2">
-                <div class="card-body" onclick="checkAnswer(currentQuestion, 1)"></div>
+                <div class="card-body" onclick="checkAnswer(1)"></div>
             </div>
             <div id="answer2" class="card quiz-answer-card mb-2">
-                <div class="card-body" onclick="checkAnswer(currentQuestion, 2)"></div>
+                <div class="card-body" onclick="checkAnswer(2)"></div>
             </div>
             <div id="answer3" class="card quiz-answer-card mb-2">
-                <div class="card-body" onclick="checkAnswer(currentQuestion, 3)"></div>
+                <div class="card-body" onclick="checkAnswer(3)"></div>
             </div>
             <div class="question-footer">
                 <span><b id="q-number">1</b> von <b id="q-total">5</b> Fragen</span>
@@ -100,7 +100,7 @@ function endgame() {
 
 function start() {
     localStorage.setItem('question', 0);
-    currentQuestion = localStorage.getItem('question');
+    currentQuestion = 0;
     localStorage.setItem('questionsPassed', 0);
     q.passed = 0;
     document.querySelector('.card-body').innerHTML = getQuizCard();
